@@ -89,6 +89,11 @@ impl<'a, T: 'a> Vector<'a, T> {
         let len = self.len();
         &self.0[self.1 + SIZE_UOFFSET..self.1 + SIZE_UOFFSET + sz * len]
     }
+
+    #[inline(always)]
+    pub fn loc(&self) -> usize {
+        self.1
+    }
 }
 
 impl<'a, T: Follow<'a> + 'a> Vector<'a, T> {
